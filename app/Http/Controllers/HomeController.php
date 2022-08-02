@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Artesaos\SEOTools\Facades\SEOMeta;
 
 class HomeController extends Controller
 {
@@ -18,16 +19,19 @@ class HomeController extends Controller
 
     public function executiveCommittee()
     {
+        SEOMeta::setTitle('Executive Committee');
         return view('home.executive-committee');
     }
 
     public function staffs()
     {
+        SEOMeta::setTitle('Our Staffs');
         return view('home.staffs');
     }
 
     public function advisors()
     {
+        SEOMeta::setTitle('Our Advisors');
         return view('home.advisors');
     }
 
