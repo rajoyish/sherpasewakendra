@@ -21,6 +21,16 @@ class HomeController extends Controller
         return view('home.executive-committee');
     }
 
+    public function staffs()
+    {
+        return view('home.staffs');
+    }
+
+    public function advisors()
+    {
+        return view('home.advisors');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

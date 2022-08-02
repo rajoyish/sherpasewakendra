@@ -21,22 +21,22 @@ $pages = ['executive-committee', 'advisors', 'staffs'];
             class="block py-5 transition-all pl-6 duration-300 bg-prime-blue hover:bg-monk-red hover:text-accent">
             Introduction to SSK
         </a>
-        {{-- <a href="{{ route('advisors') }}"
+        <a href="{{ route('advisors') }}"
             class="block py-5 transition-all pl-6 duration-300 bg-prime-blue hover:bg-monk-red hover:text-accent
             {{ Route::currentRouteNamed('advisors') ? 'bg-dark-gold' : '' }}">
             Advisors
-        </a> --}}
+        </a>
         <a href="{{ route('executive-committee') }}"
             class="block py-5 transition-all pl-6 duration-300 bg-prime-blue hover:bg-monk-red hover:text-accent
             {{ Route::currentRouteNamed('executive-committee') ? 'bg-dark-gold' : '' }}">
             Executive Committee
         </a>
 
-        {{-- <a href="{{ route('staffs') }}"
+        <a href="{{ route('staffs') }}"
             class="block py-5 transition-all pl-6 duration-300 bg-prime-blue hover:bg-monk-red hover:text-accent
             {{ Route::currentRouteNamed('staffs') ? 'bg-dark-gold' : '' }}">
             Staffs
-        </a> --}}
+        </a>
     </nav>
 
 </span>

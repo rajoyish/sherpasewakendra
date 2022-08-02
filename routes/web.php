@@ -19,6 +19,8 @@ Route::get('/', function () {
 });
 
 Route::get('/executive-committee', [HomeController::class, 'executiveCommittee'])->name('executive-committee');
+Route::get('/staffs', [HomeController::class, 'staffs'])->name('staffs');
+Route::get('/advisors', [HomeController::class, 'advisors'])->name('advisors');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
