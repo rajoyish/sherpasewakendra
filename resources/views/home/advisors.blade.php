@@ -18,55 +18,7 @@
                             <div class="space-y-2">
                                 <div class="space-y-1 text-center leading-6">
                                     <h3>Sonam Gyaltsen Sherpa (Pinasa)</h3>
-                                    <p class="text-prime-blue">Advisor</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- End of Member -->
-                    <!-- Member -->
-                    <li>
-                        <div class="space-y-4">
-                            <div class="aspect-w-3 aspect-h-3">
-                                <img class="rounded-lg object-cover shadow-lg"
-                                    src="{{ asset('images/advisors/2-sonam-tsering-sherpa-yulkongma.jpg') }}" />
-                            </div>
-                            <div class="space-y-2">
-                                <div class="space-y-1 text-center leading-6">
-                                    <h3>Sonam Tsering Sherpa (Yulkongma)</h3>
-                                    <p class="text-prime-blue">Advisor</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- End of Member -->
-                    <!-- Member -->
-                    <li>
-                        <div class="space-y-4">
-                            <div class="aspect-w-3 aspect-h-3">
-                                <img class="rounded-lg object-cover shadow-lg"
-                                    src="{{ asset('images/advisors/3-jip-tsering-sherpa.jpg') }}" />
-                            </div>
-                            <div class="space-y-2">
-                                <div class="space-y-1 text-center leading-6">
-                                    <h3>Jip Tsering Sherpa (Lama)</h3>
-                                    <p class="text-prime-blue">Advisor</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- End of Member -->
-                    <!-- Member -->
-                    <li>
-                        <div class="space-y-4">
-                            <div class="aspect-w-3 aspect-h-3">
-                                <img class="rounded-lg object-cover shadow-lg"
-                                    src="{{ asset('images/advisors/4-ang-dendi-sherpa-taktok.jpg') }}" />
-                            </div>
-                            <div class="space-y-2">
-                                <div class="space-y-1 text-center leading-6">
-                                    <h3>Ang Dendi Sherpa (Taktok)</h3>
-                                    <p class="text-prime-blue">Advisor</p>
+                                    <p class="text-prime-blue">Former President</p>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +34,7 @@
                             <div class="space-y-2">
                                 <div class="space-y-1 text-center leading-6">
                                     <h3>Kripasur Sherpa (Pinasa)</h3>
-                                    <p class="text-prime-blue">Advisor</p>
+                                    <p class="text-prime-blue">Former Hon'ble Minister</p>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +50,103 @@
                             <div class="space-y-2">
                                 <div class="space-y-1 text-center leading-6">
                                     <h3>Ang Tsering Sherpa (Lama)</h3>
-                                    <p class="text-prime-blue">Advisor</p>
+                                    <p class="text-prime-blue">Former Minister</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End of Member -->
+                    <!-- Member -->
+                    <li>
+                        <div class="space-y-4">
+                            <div class="aspect-w-3 aspect-h-3">
+                                <img class="rounded-lg object-cover shadow-lg"
+                                    src="{{ asset('images/advisors/3-jip-tsering-sherpa.jpg') }}" />
+                            </div>
+                            <div class="space-y-2">
+                                <div class="space-y-1 text-center leading-6">
+                                    <h3>Jip Tsering Sherpa (Lama)</h3>
+                                    <p class="text-prime-blue">Member of Federal Parliament</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End of Member -->
+                    <!-- Member -->
+                    <li>
+                        <div class="space-y-4">
+                            <div class="aspect-w-3 aspect-h-3">
+                                <img class="rounded-lg object-cover shadow-lg"
+                                    src="{{ asset('images/advisors/5-ang-tawa-sherpa.jpg') }}" />
+                            </div>
+                            <div class="space-y-2">
+                                <div class="space-y-1 text-center leading-6">
+                                    <h3>Ang Tawa Sherpa (Garja)</h3>
+                                    <p class="text-prime-blue">Member of Parliament</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End of Member -->
+                    <!-- Member -->
+                    <li>
+                        <div class="space-y-4">
+                            <div class="aspect-w-3 aspect-h-3">
+                                <img class="rounded-lg object-cover shadow-lg"
+                                    src="{{ asset('images/advisors/6-ang-dendi-dn-lama.jpg') }}" />
+                            </div>
+                            <div class="space-y-2">
+                                <div class="space-y-1 text-center leading-6">
+                                    <h3>Ang Dendi DN Sherpa (Lama)</h3>
+                                    <p class="text-prime-blue">Member of Provincial Assembly</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End of Member -->
+                    <!-- Member -->
+                    <li>
+                        <div class="space-y-4">
+                            <div class="aspect-w-3 aspect-h-3">
+                                <img class="rounded-lg object-cover shadow-lg"
+                                    src="{{ asset('images/advisors/4-ang-dendi-sherpa-taktok.jpg') }}" />
+                            </div>
+                            <div class="space-y-2">
+                                <div class="space-y-1 text-center leading-6">
+                                    <h3>Ang Dendi Sherpa (Taktok)</h3>
+                                    <p class="text-prime-blue">Former President</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End of Member -->
+                    <!-- Member -->
+                    <li>
+                        <div class="space-y-4">
+                            <div class="aspect-w-3 aspect-h-3">
+                                <img class="rounded-lg object-cover shadow-lg"
+                                    src="{{ asset('images/advisors/8-capt-ang-dandi-sherpa-khapa.jpg') }}" />
+                            </div>
+                            <div class="space-y-2">
+                                <div class="space-y-1 text-center leading-6">
+                                    <h3>Capt. Ang Dandi Sherpa (Khapa)</h3>
+                                    <p class="text-prime-blue">Former President</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End of Member -->
+                    <!-- Member -->
+                    <li>
+                        <div class="space-y-4">
+                            <div class="aspect-w-3 aspect-h-3">
+                                <img class="rounded-lg object-cover shadow-lg"
+                                    src="{{ asset('images/advisors/9-ang-tsering-sherpa-taktok.jpg') }}" />
+                            </div>
+                            <div class="space-y-2">
+                                <div class="space-y-1 text-center leading-6">
+                                    <h3>Ang Tsering Sherpa (Taktok)</h3>
+                                    <p class="text-prime-blue">Former Secretary</p>
                                 </div>
                             </div>
                         </div>
@@ -113,8 +161,8 @@
                             </div>
                             <div class="space-y-2">
                                 <div class="space-y-1 text-center leading-6">
-                                    <h3>Ang Kaji Sherpa (Chyawa)</h3>
-                                    <p class="text-prime-blue">Advisor</p>
+                                    <h3>Ang Kaji Sherpa Kisan (Chyawa)</h3>
+                                    <p class="text-prime-blue">Former Treasurer</p>
                                 </div>
                             </div>
                         </div>
@@ -125,28 +173,12 @@
                         <div class="space-y-4">
                             <div class="aspect-w-3 aspect-h-3">
                                 <img class="rounded-lg object-cover shadow-lg"
-                                    src="{{ asset('images/advisors/8-tenji-rangdol-sherpa-lama.jpg') }}" />
+                                    src="{{ asset('images/advisors/11-phurita-sherpa-yul.jpg') }}" />
                             </div>
                             <div class="space-y-2">
                                 <div class="space-y-1 text-center leading-6">
-                                    <h3>Tenji Rangdol Sherpa (Lama)</h3>
-                                    <p class="text-prime-blue">Advisor</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- End of Member -->
-                    <!-- Member -->
-                    <li>
-                        <div class="space-y-4">
-                            <div class="aspect-w-3 aspect-h-3">
-                                <img class="rounded-lg object-cover shadow-lg"
-                                    src="{{ asset('images/advisors/9-pasang-dorji-sherpa-lama.jpg') }}" />
-                            </div>
-                            <div class="space-y-2">
-                                <div class="space-y-1 text-center leading-6">
-                                    <h3>Pasang Dorji Sherpa (Lama)</h3>
-                                    <p class="text-prime-blue">Advisor</p>
+                                    <h3>Phurita Sherpa (Yulkongma)</h3>
+                                    <p class="text-prime-blue">Former Treasurer</p>
                                 </div>
                             </div>
                         </div>
@@ -173,12 +205,12 @@
                         <div class="space-y-4">
                             <div class="aspect-w-3 aspect-h-3">
                                 <img class="rounded-lg object-cover shadow-lg"
-                                    src="{{ asset('images/advisors/11-phulmu-sherpa-chyawa.jpg') }}" />
+                                    src="{{ asset('images/advisors/13-gambu-sherpa.jpg') }}" />
                             </div>
                             <div class="space-y-2">
                                 <div class="space-y-1 text-center leading-6">
-                                    <h3>Phulmu Sherpa (Chyawa)</h3>
-                                    <p class="text-prime-blue">Advisor</p>
+                                    <h3>Gambu Sherpa (Laksindok)</h3>
+                                    <p class="text-prime-blue">Chairperson, Khijidemba R.M.</p>
                                 </div>
                             </div>
                         </div>
@@ -189,34 +221,17 @@
                         <div class="space-y-4">
                             <div class="aspect-w-3 aspect-h-3">
                                 <img class="rounded-lg object-cover shadow-lg"
-                                    src="{{ asset('images/advisors/12-late-ang-tsering-sherpa-paldorje.jpg') }}" />
+                                    src="{{ asset('images/advisors/14-mingma-sherpa.jpg') }}" />
                             </div>
                             <div class="space-y-2">
                                 <div class="space-y-1 text-center leading-6">
-                                    <h3>Late Ang Tsering Sherpa (Paldorje)</h3>
+                                    <h3>Mingma Sherpa (Gole)</h3>
                                     <p class="text-prime-blue">Advisor</p>
                                 </div>
                             </div>
                         </div>
                     </li>
                     <!-- End of Member -->
-                    <!-- Member -->
-                    <li>
-                        <div class="space-y-4">
-                            <div class="aspect-w-3 aspect-h-3">
-                                <img class="rounded-lg object-cover shadow-lg"
-                                    src="{{ asset('images/advisors/13-sher-sangbo-sherpa-garja.jpg') }}" />
-                            </div>
-                            <div class="space-y-2">
-                                <div class="space-y-1 text-center leading-6">
-                                    <h3>Sher Sangbo Sherpa (Garja)</h3>
-                                    <p class="text-prime-blue">Advisor</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- End of Member -->
-
                 </ul>
             </div>
         </div>
