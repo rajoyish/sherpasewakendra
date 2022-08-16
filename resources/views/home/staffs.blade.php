@@ -77,22 +77,6 @@
                         <div class="space-y-4">
                             <div class="aspect-w-3 aspect-h-3">
                                 <img class="rounded-lg object-cover shadow-lg"
-                                    src="{{ asset('images/staffs/5-lam-phuri-sherpa.jpg') }}" />
-                            </div>
-                            <div class="space-y-2">
-                                <div class="space-y-1 text-center leading-6">
-                                    <h3>Lam Phuri Sherpa</h3>
-                                    <p class="text-prime-blue">Ambulance Driver</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- End of Member -->
-                    <!-- Member -->
-                    <li>
-                        <div class="space-y-4">
-                            <div class="aspect-w-3 aspect-h-3">
-                                <img class="rounded-lg object-cover shadow-lg"
                                     src="{{ asset('images/staffs/6-maya-sherpa.jpg') }}" />
                             </div>
                             <div class="space-y-2">
@@ -157,22 +141,6 @@
                         <div class="space-y-4">
                             <div class="aspect-w-3 aspect-h-3">
                                 <img class="rounded-lg object-cover shadow-lg"
-                                    src="{{ asset('images/staffs/10-sukra-bahadur-jimba.jpg') }}" />
-                            </div>
-                            <div class="space-y-2">
-                                <div class="space-y-1 text-center leading-6">
-                                    <h3>Sukra Bahadur Jimba</h3>
-                                    <p class="text-prime-blue">Security Guard</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- End of Member -->
-                    <!-- Member -->
-                    <li>
-                        <div class="space-y-4">
-                            <div class="aspect-w-3 aspect-h-3">
-                                <img class="rounded-lg object-cover shadow-lg"
                                     src="{{ asset('images/staffs/11-soni-gurung.jpg') }}" />
                             </div>
                             <div class="space-y-2">
@@ -195,6 +163,22 @@
                                 <div class="space-y-1 text-center leading-6">
                                     <h3>Ningmar Sherpa</h3>
                                     <p class="text-prime-blue">Store Keeper</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End of Member -->
+                    <!-- Member -->
+                    <li>
+                        <div class="space-y-4">
+                            <div class="aspect-w-3 aspect-h-3">
+                                <img class="rounded-lg object-cover shadow-lg"
+                                    src="{{ asset('images/staffs/13-sahara-tamang.jpg') }}" />
+                            </div>
+                            <div class="space-y-2">
+                                <div class="space-y-1 text-center leading-6">
+                                    <h3>Sahara Tamang</h3>
+                                    <p class="text-prime-blue">Housekeeping/Reception</p>
                                 </div>
                             </div>
                         </div>
