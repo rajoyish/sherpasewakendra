@@ -77,7 +77,7 @@
                         <div class="space-y-4">
                             <div class="aspect-w-3 aspect-h-3">
                                 <img class="rounded-lg object-cover shadow-lg"
-                                    src="{{ asset('images/executive-committee/5-ang-kaji-sherpa-chyawa.jpg') }}" />
+                                    src="{{ asset('images/executive-committee/5-ang-kaji-sherpa-chyawa edited.jpg') }}" />
                             </div>
                             <div class="space-y-2">
                                 <div class="space-y-1 leading-6 text-center">
