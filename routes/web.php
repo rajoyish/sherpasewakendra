@@ -15,9 +15,7 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('home.executive-committee');
-});
+Route::get('/', [RoomController::class, 'index']);
 
 Route::get('/executive-committee', [HomeController::class, 'executiveCommittee'])->name('executive-committee');
 Route::get('/staffs', [HomeController::class, 'staffs'])->name('staffs');
