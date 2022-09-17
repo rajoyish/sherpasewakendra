@@ -87,12 +87,12 @@
                                     <!-- Price -->
                                     <div class="flex items-center gap-4 text-center">
                                         <div>
-                                            <span class="uppercase text-gray-600">Price</span>
+                                            <span class="uppercase text-ace-gold leading-tight">Rs.</span>
                                             <p class="font-bold text-monk-red md:text-2xl">{{ $room->price }}</p>
                                         </div>
                                         <div class="grow">
                                             <a
-                                                href="tel:+977014480529"
+                                                href="tel:014480529"
                                                 class="block rounded-full bg-ace-gold px-12 py-2 font-bold uppercase text-white transition-all duration-300 hover:bg-dark-gold md:py-4"
                                             >Book Now</a
                                             >
