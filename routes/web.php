@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -21,6 +22,9 @@ Route::get('/', function () {
 Route::get('/executive-committee', [HomeController::class, 'executiveCommittee'])->name('executive-committee');
 Route::get('/staffs', [HomeController::class, 'staffs'])->name('staffs');
 Route::get('/advisors', [HomeController::class, 'advisors'])->name('advisors');
+
+//ROOMS
+Route::get('/dharmashala', [RoomController::class, 'index'])->name('dharmashala');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
