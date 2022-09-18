@@ -17,7 +17,7 @@ class RoomSeeder extends Seeder
     {
         Room::create([
             'name' => 'Mt. Everest',
-            'price' => '1000',
+            'price' => '1500',
             'amenities' => [
                 'bed' => '1 Double Bed',
                 'bath' => 'Attach Bathroom',
@@ -31,7 +31,7 @@ class RoomSeeder extends Seeder
 
         Room::create([
             'name' => 'Dhaulagiri',
-            'price' => '1500',
+            'price' => '2000',
             'amenities' => [
                 'bed' => '1 Double Bed & 1 Single Bed',
                 'bath' => 'Attach Bathroom',
@@ -45,7 +45,7 @@ class RoomSeeder extends Seeder
 
         Room::create([
             'name' => 'Kanchenjunga',
-            'price' => '1500',
+            'price' => '2000',
             'amenities' => [
                 'bed' => '1 Double Bed & 1 Single Bed',
                 'bath' => 'Attach Bathroom',
@@ -54,11 +54,11 @@ class RoomSeeder extends Seeder
                 'bedsideTable' => '2 Bedside table',
                 'cupboard' => 'Cupboard',
             ],
-            'photo' => 'Kanchenjunga.jpg',
+            'photo' => 'Kanchenjungaa.jpg',
         ]);
         Room::create([
             'name' => 'Langtang',
-            'price' => '1000',
+            'price' => '1500',
             'amenities' => [
                 'bed' => '1 Double Bed',
                 'bath' => 'Attach Bathroom',
@@ -124,7 +124,7 @@ class RoomSeeder extends Seeder
         ]);
         Room::create([
             'name' => 'Makalu',
-            'price' => '2500',
+            'price' => '1500',
             'amenities' => [
                 'bed' => '5 Single Bed',
                 'bath' => 'N/A',
@@ -137,7 +137,7 @@ class RoomSeeder extends Seeder
         ]);
         Room::create([
             'name' => 'Gaurishankar',
-            'price' => '1000',
+            'price' => '1500',
             'amenities' => [
                 'bed' => '1 Double Bed',
                 'bath' => 'Attach Bathroom',
@@ -150,7 +150,7 @@ class RoomSeeder extends Seeder
         ]);
         Room::create([
             'name' => 'Api',
-            'price' => '1000',
+            'price' => '1500',
             'amenities' => [
                 'bed' => '1 Double Bed',
                 'bath' => 'Attach Bathroom',
@@ -172,11 +172,11 @@ class RoomSeeder extends Seeder
                 'bedsideTable' => '4 Bedside table',
                 'cupboard' => 'N/A',
             ],
-            'photo' => 'Nilgiri.jpg',
+            'photo' => 'Nilgirii.jpg',
         ]);
         Room::create([
             'name' => 'Ama Dablam',
-            'price' => '1000',
+            'price' => '1500',
             'amenities' => [
                 'bed' => '1 Double Bed',
                 'bath' => 'Attach Bathroom',
@@ -202,7 +202,7 @@ class RoomSeeder extends Seeder
         ]);
         Room::create([
             'name' => 'Numbur',
-            'price' => '2000',
+            'price' => '1500',
             'amenities' => [
                 'bed' => '1 Double Bed',
                 'bath' => 'Attach Bathroom',
