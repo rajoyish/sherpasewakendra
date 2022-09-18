@@ -54,7 +54,7 @@ class RoomSeeder extends Seeder
                 'bedsideTable' => '2 Bedside table',
                 'cupboard' => 'Cupboard',
             ],
-            'photo' => 'Kanchenjungaa.jpg',
+            'photo' => 'Kanchenjunga.jpg',
         ]);
         Room::create([
             'name' => 'Langtang',
@@ -172,7 +172,7 @@ class RoomSeeder extends Seeder
                 'bedsideTable' => '4 Bedside table',
                 'cupboard' => 'N/A',
             ],
-            'photo' => 'Nilgirii.jpg',
+            'photo' => 'Nilgiri.jpg',
         ]);
         Room::create([
             'name' => 'Ama Dablam',

@@ -87,7 +87,7 @@
                                     <!-- Price -->
                                     <div class="flex items-center gap-4 text-center">
                                         <div>
-                                            <span class="uppercase text-ace-gold leading-tight">/Night Rs.</span>
+                                            <span class="text-ace-gold leading-tight">/Night Rs.</span>
                                             <p class="font-bold text-monk-red md:text-2xl">{{ $room->price }}</p>
                                         </div>
                                         <div class="grow">
