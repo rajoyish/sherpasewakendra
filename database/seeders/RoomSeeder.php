@@ -124,7 +124,7 @@ class RoomSeeder extends Seeder
         ]);
         Room::create([
             'name' => 'Makalu',
-            'price' => '1500',
+            'price' => '2500',
             'amenities' => [
                 'bed' => '5 Single Bed',
                 'bath' => 'N/A',

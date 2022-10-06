@@ -23,6 +23,7 @@ Route::get('/advisors', [HomeController::class, 'advisors'])->name('advisors');
 
 //ROOMS
 Route::get('/dharmashala', [RoomController::class, 'index'])->name('dharmashala');
+// Route::get('/dharmashala', [RoomController::class, 'index'])->name('dharmashala')->middleware('is_admin');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

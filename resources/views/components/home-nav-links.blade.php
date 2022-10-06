@@ -21,27 +21,23 @@ $pages = ['executive-committee', 'advisors', 'staffs'];
             class="block py-5 transition-all pl-6 duration-300 bg-prime-blue hover:bg-monk-red hover:text-accent">
             Introduction to SSK
         </a>
-        <a href="{{ route('advisors') }}"
-            class="block py-5 transition-all pl-6 duration-300 bg-prime-blue hover:bg-monk-red hover:text-accent
+        <a href="{{ route('advisors') }}" class="block py-5 transition-all pl-6 duration-300 bg-prime-blue hover:bg-monk-red hover:text-accent
             {{ Route::currentRouteNamed('advisors') ? 'bg-dark-gold' : '' }}">
             Advisors
         </a>
-        <a href="{{ route('executive-committee') }}"
-            class="block py-5 transition-all pl-6 duration-300 bg-prime-blue hover:bg-monk-red hover:text-accent
+        <a href="{{ route('executive-committee') }}" class="block py-5 transition-all pl-6 duration-300 bg-prime-blue hover:bg-monk-red hover:text-accent
             {{ Route::currentRouteNamed('executive-committee') ? 'bg-dark-gold' : '' }}">
             Executive Committee
         </a>
 
-        <a href="{{ route('staffs') }}"
-            class="block py-5 transition-all pl-6 duration-300 bg-prime-blue hover:bg-monk-red hover:text-accent
+        <a href="{{ route('staffs') }}" class="block py-5 transition-all pl-6 duration-300 bg-prime-blue hover:bg-monk-red hover:text-accent
             {{ Route::currentRouteNamed('staffs') ? 'bg-dark-gold' : '' }}">
             Staffs
         </a>
     </nav>
 
 </span>
-<a href="{{ route('dharmashala') }}"
-    class="block py-5 px-3 transition-all duration-300 hover:bg-ace-gold hover:text-accent
+<a href="{{ route('dharmashala') }}" class="block py-5 px-3 transition-all duration-300 hover:bg-ace-gold hover:text-accent
     {{ Route::currentRouteNamed('dharmashala') ? 'bg-dark-gold' : '' }}">Dharmashala</a>
 <a href="#" class="block py-5 px-3 transition-all duration-300 hover:bg-ace-gold hover:text-accent">Members</a>
 <a href="#" class="block py-5 px-3 transition-all duration-300 hover:bg-ace-gold hover:text-accent">Gallery</a>
