@@ -10,15 +10,15 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
             @csrf
 
             <!-- Name -->
             <div>
                 <x-label for="name" :value="__('Name')" />
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required
-                    autofocus />
+                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"
+                    required autofocus />
             </div>
 
             <!-- Email Address -->
@@ -43,6 +43,19 @@
 
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password"
                     name="password_confirmation" required />
+            </div>
+
+            <!-- Photo -->
+            <div class="mt-4">
+                <x-label for="photo" :value="__('Upload Photo')" />
+                <x-input id="photo" class="block mt-1 w-full" type="file" name="photo" required />
+            </div>
+
+            <!-- ID Doc -->
+            <div class="mt-4">
+                <x-label for="id_doc" :value="__('Upload ID')" />
+                <x-input id="id_doc" class="block mt-1 w-full" type="file" name="id_doc" required />
+                <span class="text-sm text-prime-blue">National ID / Citizenship / Passport</span>
             </div>
 
             <div class="flex items-center justify-end mt-4">

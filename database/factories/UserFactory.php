@@ -20,8 +20,9 @@ class UserFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->safeEmail(),
-            'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'photo' => 'images/users/yA7U0cNZNT2SKoc4VpIZSM1f2smKdqsBp31XkQtZ.jpg',
+            'id_doc' => 'images/users/yA7U0cNZNT2SKoc4VpIZSM1f2smKdqsBp31XkQtZ.jpg',
             'remember_token' => Str::random(10),
         ];
     }

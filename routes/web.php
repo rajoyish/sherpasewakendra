@@ -3,6 +3,7 @@
 use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,11 @@ Route::get('/dharmashala', [RoomController::class, 'index'])->name('dharmashala'
 // Route::get('/dharmashala', [RoomController::class, 'index'])->name('dharmashala')->middleware('is_admin');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::resource('users', UserController::class)
+    ->only(['index', 'store', 'edit', 'update'])
+    ->middleware(['is_admin']);
 
 require __DIR__ . '/auth.php';
