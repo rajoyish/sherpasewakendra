@@ -42,7 +42,7 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'photo' => ['required', File::image()->max(1024)],
-            'id_card' => ['required', File::image()->max(1024)],
+            'id_doc' => ['required', File::image()->max(1024)],
 
         ]);
 
@@ -58,9 +58,9 @@ class RegisteredUserController extends Controller
             ]);
         }
 
-        if ($request->hasFile('id_card')) {
+        if ($request->hasFile('id_doc')) {
             $user->update([
-                'id_card' => $request->file('id_card')->store('images/users')
+                'id_doc' => $request->file('id_doc')->store('images/docs')
             ]);
         }
 

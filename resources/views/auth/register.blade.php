@@ -53,7 +53,7 @@
 
             <!-- ID Doc -->
             <div class="mt-4">
-                <x-label for="id_doc" :value="__('Upload ID')" />
+                <x-label for="id_doc" :value="__('Upload ID Document')" />
                 <x-input id="id_doc" class="block mt-1 w-full" type="file" name="id_doc" required />
                 <span class="text-sm text-prime-blue">National ID / Citizenship / Passport</span>
             </div>
