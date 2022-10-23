@@ -5,8 +5,9 @@ namespace App\Http\Controllers\User;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserUpdateRequest;
+use Illuminate\Validation\Rules\File;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\UserUpdateRequest;
 
 class UserController extends Controller
 {
@@ -17,7 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(10);
+        $users = User::latest()->paginate(10);
 
         return view('users.index', [
             'users' => $users,
@@ -76,21 +77,39 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(UserUpdateRequest $request, User $user)
+    public function update(Request $request, User $user)
     {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'is_verified' => ['boolean'],
+            'photo' => [File::image()->max(1024)],
+            'id_doc' => [File::image()->max(1024)],
+        ]);
+
         if ($request->hasFile('photo')) {
             Storage::delete($user->photo);
-            $user->photo = $request->file('photo')->store('images/users');
+            $user->update([
+                'photo' => $request->file('photo')->store('images/users'),
+            ]);
         }
 
-        if ($request->hasFile('id_doc')) {  
+        if ($request->hasFile('id_doc')) {
             Storage::delete($user->id_doc);
-            $user->id_doc = $request->file('id_doc')->store('images/docs');
+            $user->update([
+                'id_doc' => $request->file('id_doc')->store('images/docs'),
+            ]);
         }
 
-        $user->update($request->validated() + [
-            'photo' => $user->photo,
-            'id_doc' => $user->id_doc,
+        if (!$request->hasFile('photo') || $request->hasFile('id_doc')) {
+            $user->update([
+                'photo' => $user->photo,
+                'id_doc' => $user->id_doc,
+            ]);
+        }
+
+        $user->update([
+            'name' => $request->name,
+            'is_verified' => $request->is_verified,
         ]);
 
         return to_route('users.index')->with('success', 'Note updated successfully');
