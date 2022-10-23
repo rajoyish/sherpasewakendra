@@ -112,7 +112,7 @@ class UserController extends Controller
             'is_verified' => $request->is_verified,
         ]);
 
-        return to_route('users.index')->with('success', 'Note updated successfully');
+        return to_route('users.index')->with('success', 'The user is updated.');
     }
 
     /**
@@ -123,6 +123,10 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        Storage::delete($user->photo);
+        Storage::delete($user->id_doc);
+        $user->delete();
+
+        return to_route('users.index')->with('success', 'The user is deleted.');
     }
 }

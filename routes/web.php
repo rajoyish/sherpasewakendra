@@ -31,7 +31,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::resource('users', UserController::class)
-    ->only(['index', 'store', 'edit', 'update'])
+    ->only(['index', 'store', 'edit', 'update', 'destroy'])
     ->middleware(['is_admin']);
 
 require __DIR__ . '/auth.php';

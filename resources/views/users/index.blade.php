@@ -102,11 +102,15 @@
                                                 </td>
                                                 <td
                                                     class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right sm:pr-6 lg:pr-8">
-                                                    <a href="storage/{{ $user->id_card }}"
-                                                        class="flex justify-center text-red-600 hover:text-red-900">
+                                                    <div class="flex justify-center text-red-600 hover:text-red-900">
                                                         <x-icons.delete-icon />
-                                                        <span class="uppercase">Delete</span>
-                                                    </a>
+                                                        <form action="{{ route('users.destroy', $user) }}"
+                                                            method="POST" onsubmit="return confirm('Are you sure?');">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="uppercase" type="submit">Delete</button>
+                                                        </form>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforeach
