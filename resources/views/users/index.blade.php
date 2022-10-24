@@ -54,20 +54,24 @@
                                         @foreach ($users as $user)
                                             <tr class="odd:bg-white even:bg-slate-100">
                                                 <td
-                                                    class="whitespace-nowrap px-3 py-4 text-gray-900 flex justify-center ">
+                                                    class="whitespace-nowrap px-4 py-4 text-gray-900 flex justify-center ">
                                                     <div class="flex-shrink-0">
-                                                        <img class="h-10 w-10 rounded-full mx-4 md:mx-0"
+                                                        <img class="h-16 w-16 rounded-full mx-4 md:mx-0"
                                                             src="{{ url('storage/' . $user->photo) }}">
                                                     </div>
                                                 </td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-gray-900">
-                                                    {{ $user->name }}
+                                                    <span class="font-bold">{{ $user->name }}</span>
+                                                    <div class="text-lg flex">
+                                                        <x-icons.clock-icon class="h-5 w-5 mr-1 text-prime-blue" />
+                                                        <span>{{ $user->created_at->format('F j, Y, g:i a') }}</span>
+                                                    </div>
                                                 </td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-gray-500">
                                                     {{ $user->email }}
                                                 </td>
                                                 <td class="whitespace-nowrap px-3 py-4  text-gray-500 text-center">
-                                                    @if ($user->is_admin === 1)
+                                                    @if ($user->is_admin === true)
                                                         <span
                                                             class="py-0 px-4 shadow no-underline rounded-full bg-green-600 text-white border-green-600 hover:text-white focus:outline-none pointer:none">
                                                             Admin
@@ -80,7 +84,7 @@
                                                     @endif
                                                 </td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-gray-500 text-center">
-                                                    @if ($user->is_verified === 1)
+                                                    @if ($user->is_verified === true)
                                                         <span
                                                             class="py-0 px-4 shadow no-underline rounded-full bg-green-600 text-white border-green-600 hover:text-white focus:outline-none pointer:none">
                                                             Verified
@@ -103,13 +107,20 @@
                                                 <td
                                                     class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right sm:pr-6 lg:pr-8">
                                                     <div class="flex justify-center text-red-600 hover:text-red-900">
-                                                        <x-icons.delete-icon />
-                                                        <form action="{{ route('users.destroy', $user) }}"
-                                                            method="POST" onsubmit="return confirm('Are you sure?');">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="uppercase" type="submit">Delete</button>
-                                                        </form>
+                                                        @if ($user->is_admin === true)
+                                                            <x-icons.delete-icon class="h-6 w-6 text-slate-600" />
+                                                            <button class="uppercase text-slate-600"
+                                                                disabled>Delete</button>
+                                                        @else
+                                                            <x-icons.delete-icon class="h-6 w-6" />
+                                                            <form action="{{ route('users.destroy', $user) }}"
+                                                                method="POST"
+                                                                onsubmit="return confirm('Are you sure?');">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="uppercase" type="submit">Delete</button>
+                                                            </form>
+                                                        @endif
                                                     </div>
                                                 </td>
                                             </tr>

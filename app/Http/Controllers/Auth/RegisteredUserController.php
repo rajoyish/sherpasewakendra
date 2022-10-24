@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
-use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 use Illuminate\Validation\Rules\File;
-use Illuminate\Auth\Events\Registered;
-use App\Providers\RouteServiceProvider;
 
 class RegisteredUserController extends Controller
 {
@@ -36,7 +34,6 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -54,13 +51,13 @@ class RegisteredUserController extends Controller
 
         if ($request->hasFile('photo')) {
             $user->update([
-                'photo' => $request->file('photo')->store('images/users')
+                'photo' => $request->file('photo')->store('images/users'),
             ]);
         }
 
         if ($request->hasFile('id_doc')) {
             $user->update([
-                'id_doc' => $request->file('id_doc')->store('images/docs')
+                'id_doc' => $request->file('id_doc')->store('images/docs'),
             ]);
         }
 

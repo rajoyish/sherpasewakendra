@@ -30,6 +30,11 @@
 
             {{-- CONTENT --}}
             <main class="flex-1">
+
+                @if (Session::has('success'))
+                    <x-alert />
+                @endif
+
                 {{ $slot }}
             </main>
             {{-- END OF CONTENT --}}

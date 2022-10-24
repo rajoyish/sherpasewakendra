@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\RoomController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\User\UserController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +34,4 @@ Route::resource('users', UserController::class)
     ->only(['index', 'store', 'edit', 'update', 'destroy'])
     ->middleware(['is_admin']);
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

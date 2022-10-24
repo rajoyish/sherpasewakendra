@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Validation\Rules\File;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\UserUpdateRequest;
+use Illuminate\Validation\Rules\File;
 
 class UserController extends Controller
 {
@@ -18,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->paginate(10);
+        $users = User::latest()
+            ->paginate(10);
 
         return view('users.index', [
             'users' => $users,
@@ -66,7 +66,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         return view('users.edit', [
-            'user' => $user
+            'user' => $user,
         ]);
     }
 
