@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -15,13 +16,22 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::latest()
-            ->paginate(10);
+        $search_key = $request['search'] ?? "";
+
+        if ($search_key != "") {
+            $users = User::latest()
+                ->whereFullText('name', $search_key)
+                ->paginate(10);
+        } else {
+            $users = User::latest()
+                ->paginate(10);
+        }
 
         return view('users.index', [
             'users' => $users,
+            'search_key' => $search_key
         ]);
     }
 
@@ -123,6 +133,9 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        if (condition) {
+            # code...
+        }
         Storage::delete($user->photo);
         Storage::delete($user->id_doc);
         $user->delete();
