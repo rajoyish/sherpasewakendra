@@ -15,7 +15,7 @@
                 <div class="hidden items-center space-x-1 md:flex">
 
                     {{-- HOME NAV LINKS --}}
-                    <x-home-nav-links />
+                    <x-guest-nav-links/>
 
                 </div>
             </div>
@@ -45,7 +45,7 @@
     <div x-show="navOpen" @click.away="navOpen = false" x-bind:class=" navOpen ? '' : 'hidden'" class="md:hidden">
 
         {{-- HOME NAV LINKS --}}
-        <x-home-nav-links />
+        <x-guest-nav-links/>
 
     </div>
 </nav>

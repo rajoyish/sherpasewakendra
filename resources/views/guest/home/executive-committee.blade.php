@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-guest-layout>
     <div class="text:lg bg-white">
         <div class="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8 lg:py-24">
             <div class="space-y-12">
@@ -332,4 +332,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-guest-layout>

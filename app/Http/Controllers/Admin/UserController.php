@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function dashboard()
     {
-        return view('user.dashboard');
+        return view('admin.dashboard');
     }
 
     public function index(Request $request)
@@ -28,29 +28,14 @@ class UserController extends Controller
                 ->paginate(10);
         }
 
-        return view('user.users.index', [
+        return view('admin.users.index', [
             'users' => $users,
         ]);
     }
 
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show(User $user)
-    {
-        //
-    }
-
     public function edit(User $user)
     {
-        return view('user.users.edit', [
+        return view('admin.users.edit', [
             'user' => $user,
         ]);
     }
@@ -90,7 +75,7 @@ class UserController extends Controller
             'is_verified' => $request->is_verified,
         ]);
 
-        return to_route('user.users.index')->with('success', 'The user is updated.');
+        return to_route('admin.users.index')->with('success', 'The user is updated.');
     }
 
     public function destroy(User $user)
@@ -99,6 +84,6 @@ class UserController extends Controller
         Storage::delete($user->id_doc);
         $user->delete();
 
-        return to_route('user.users.index')->with('success', 'The user is deleted.');
+        return to_route('admin.users.index')->with('success', 'The user is deleted.');
     }
 }

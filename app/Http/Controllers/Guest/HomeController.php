@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Guest;
 
+use App\Http\Controllers\Controller;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
 
@@ -21,21 +22,21 @@ class HomeController extends Controller
     {
         SEOMeta::setTitle('Executive Committee');
 
-        return view('home.executive-committee');
+        return view('guest.home.executive-committee');
     }
 
     public function staffs()
     {
         SEOMeta::setTitle('Our Staffs');
 
-        return view('home.staffs');
+        return view('guest.home.staffs');
     }
 
     public function advisors()
     {
         SEOMeta::setTitle('Our Advisors');
 
-        return view('home.advisors');
+        return view('guest.home.advisors');
     }
 
     /**

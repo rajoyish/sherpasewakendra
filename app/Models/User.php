@@ -25,6 +25,7 @@ class User extends Authenticatable
         'is_verified',
         'photo',
         'id_doc',
+        'role_id',
     ];
 
     /**
@@ -46,4 +47,12 @@ class User extends Authenticatable
         'is_admin' => 'boolean',
         'is_verified' => 'boolean',
     ];
+
+    public function getRedirectRoute()
+    {
+        return match ((int) $this->role_id) {
+            1 => 'user.dashboard',
+            2 => 'admin.dashboard',
+        };
+    }
 }

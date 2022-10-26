@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- FAVICON --}}
-    <x-favicon />
+    <x-favicon/>
 
     {{-- SEO TITLE --}}
     {!! SEOMeta::generate() !!}
@@ -16,10 +16,20 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
-    <div class="font-sans text-gray-900 antialiased text-xl">
-        {{ $slot }}
-    </div>
+<body class="font-sans antialiased text-xl">
+{{-- SITE HEADER --}}
+@include('layouts.site-header')
+
+{{-- HOME MENU/NAVBAR --}}
+@include('layouts.guest-nav')
+
+{{-- CONTENT --}}
+<main>
+    {{ $slot }}
+</main>
+
+{{-- FOOTER --}}
+{{-- @include('layouts.home-footer') --}}
 </body>
 
 </html>

@@ -1,17 +1,16 @@
 <nav class="space-y-1 px-2">
-    <a href="#" class="group flex items-center rounded-md bg-dark-gold px-2 py-2 text-white">
-        <x-icons.dashboard-icon />
+    <x-admin-menu-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+        <x-icons.dashboard-icon/>
         Dashboard
-    </a>
+    </x-admin-menu-link>
 
-    <a href="{{ route('users.index') }}"
-        class="group flex items-center rounded-md px-2 py-2 text-white hover:bg-ace-gold">
-        <x-icons.users-icon />
+    <x-admin-menu-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
+        <x-icons.users-icon/>
         Users
-    </a>
+    </x-admin-menu-link>
 
-    <a href="#" class="group flex items-center rounded-md px-2 py-2 text-white hover:bg-ace-gold">
-        <x-icons.room-icon />
+    <x-admin-menu-link>
+        <x-icons.room-icon/>
         Rooms
-    </a>
+    </x-admin-menu-link>
 </nav>
