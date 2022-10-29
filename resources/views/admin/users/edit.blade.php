@@ -13,7 +13,6 @@
             <!-- Replace with your content -->
             <main>
                 <form method="POST" action="{{ route('admin.users.update', $user) }}"
-                      class="space-y-8 divide-y divide-gray-200"
                       enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -130,6 +129,7 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
                 </form>
             </main>
         </div>

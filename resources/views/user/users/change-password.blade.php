@@ -37,34 +37,19 @@
             <div class="border-b border-gray-200">
                 <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
                     <nav class="-mb-px flex space-x-8" aria-label="Tabs">
-                        <!-- Current: "border-pink-500 text-gray-900", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-ace-gold" -->
-                        <a
-                            href="#"
-                            class="whitespace-nowrap border-b-2 border-prime-blue py-4 px-1 text-gray-900"
-                            aria-current="page"
-                        >
+                        <x-user-profile-tab :href="route('user.users.show', Auth::user())">
                             Profile
-                        </a>
+                        </x-user-profile-tab>
 
-                        <a
-                            href="#"
-                            class="whitespace-nowrap border-b-2 border-transparent py-4 px-1 text-gray-500 hover:border-ace-gold hover:text-gray-700"
-                        >
-                            Change Photo
-                        </a>
-
-                        <a
-                            href="#"
-                            class="whitespace-nowrap border-b-2 border-transparent py-4 px-1 text-gray-500 hover:border-ace-gold hover:text-gray-700"
-                        >
-                            Change ID
-                        </a>
-                        <a
-                            href="#"
-                            class="whitespace-nowrap border-b-2 border-transparent py-4 px-1 text-gray-500 hover:border-ace-gold hover:text-gray-700"
-                        >
+                        <x-user-profile-tab :href="route('user.change-password')"
+                                            :active="request()->routeIs('user.change-password')">
                             Change Password
-                        </a>
+                        </x-user-profile-tab>
+
+                        <x-user-profile-tab :href="route('user.users.edit', Auth::user())">
+                            Update Profile
+                        </x-user-profile-tab>
+
                     </nav>
                 </div>
             </div>

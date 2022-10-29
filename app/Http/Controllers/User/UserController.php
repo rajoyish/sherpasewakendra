@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -17,41 +18,21 @@ class UserController extends Controller
         return view('user.dashboard');
     }
 
-    public function index(Request $request)
-    {
-        $search_key = $request['search'] ?? '';
-
-        if ($search_key != '') {
-            $users = User::latest()
-                ->whereFullText('name', $search_key)
-                ->paginate(10);
-        } else {
-            $users = User::latest()
-                ->paginate(10);
-        }
-
-        return view('user.users.index', [
-            'users' => $users,
-        ]);
-    }
-
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
     public function show(User $user)
     {
+        if (! $user->is(Auth::user())) {
+            abort(403);
+        }
+
         return view('user.users.user', compact('user'));
     }
 
     public function edit(User $user)
     {
+        if (! $user->is(Auth::user())) {
+            abort(403);
+        }
+
         return view('user.users.edit', [
             'user' => $user,
         ]);
@@ -59,9 +40,14 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
+        if (! $user->is(Auth::user())) {
+            abort(403);
+        }
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'is_verified' => ['boolean'],
+            'phone' => ['required', 'numeric'],
+            'address' => ['required', 'string', 'max:255'],
             'photo' => [File::image()->max(1024)],
             'id_doc' => [File::image()->max(1024)],
         ]);
@@ -89,19 +75,11 @@ class UserController extends Controller
 
         $user->update([
             'name' => $request->name,
-            'is_verified' => $request->is_verified,
+            'phone' => $request->phone,
+            'address' => $request->address,
         ]);
 
-        return to_route('user.users.index')->with('success', 'The user is updated.');
-    }
-
-    public function destroy(User $user)
-    {
-        Storage::delete($user->photo);
-        Storage::delete($user->id_doc);
-        $user->delete();
-
-        return to_route('user.users.index')->with('success', 'The user is deleted.');
+        return to_route('user.users.show', $user)->with('success', 'The user is updated.');
     }
 
     public function changePassword()
