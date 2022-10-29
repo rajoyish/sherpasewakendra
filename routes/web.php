@@ -36,8 +36,9 @@ Route::middleware(['auth', 'role:1'])
     ->name('user.')
     ->group(function () {
         Route::resource('/users', UserController::class);
-
         Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+        Route::get('/change-password', [UserController::class, 'changePassword'])->name('change-password');
+        Route::post('/change-password', [UserController::class, 'updatePassword'])->name('update-password');
     });
 
 Route::middleware(['auth', 'role:2'])

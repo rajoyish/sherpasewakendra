@@ -44,6 +44,8 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'numeric'],
+            'address' => ['required', 'string', 'max:255'],
             'is_verified' => ['boolean'],
             'photo' => [File::image()->max(1024)],
             'id_doc' => [File::image()->max(1024)],
@@ -72,6 +74,8 @@ class UserController extends Controller
 
         $user->update([
             'name' => $request->name,
+            'phone' => $request->phone,
+            'address' => $request->address,
             'is_verified' => $request->is_verified,
         ]);
 

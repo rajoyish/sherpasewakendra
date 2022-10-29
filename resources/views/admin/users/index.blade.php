@@ -36,6 +36,10 @@
                                             class="px-3 text-left py-4 selection:font-semibold text-gray-900">
                                             Email
                                         </th>
+                                        <th scope="col"
+                                            class="px-3 text-left py-4 selection:font-semibold text-gray-900">
+                                            Phone
+                                        </th>
                                         <th scope="col" class="px-3 py-4 font-semibold text-gray-900">
                                             Role
                                         </th>
@@ -70,8 +74,11 @@
                                             <td class="whitespace-nowrap px-3 py-4 text-gray-500">
                                                 {{ $user->email }}
                                             </td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-gray-500">
+                                                {{ $user->phone }}
+                                            </td>
                                             <td class="whitespace-nowrap px-3 py-4  text-gray-500 text-center">
-                                                @if ($user->is_admin === true)
+                                                @if ($user->role_id === 2)
                                                     <span
                                                         class="py-0 px-4 shadow no-underline rounded-full bg-green-600 text-white border-green-600 hover:text-white focus:outline-none pointer:none">
                                                             Admin
@@ -107,7 +114,7 @@
                                             <td
                                                 class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right sm:pr-6 lg:pr-8">
                                                 <div class="flex justify-center text-red-600 hover:text-red-900">
-                                                    @if ($user->is_admin === true)
+                                                    @if ($user->role_id === 2)
                                                         <x-icons.delete-icon class="h-6 w-6 text-slate-600"/>
                                                         <button class="uppercase text-slate-600"
                                                                 disabled>Delete

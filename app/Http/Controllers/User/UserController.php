@@ -5,7 +5,9 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rules;
 use Illuminate\Validation\Rules\File;
 
 class UserController extends Controller
@@ -45,7 +47,7 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        //
+        return view('user.users.user', compact('user'));
     }
 
     public function edit(User $user)
@@ -100,5 +102,28 @@ class UserController extends Controller
         $user->delete();
 
         return to_route('user.users.index')->with('success', 'The user is deleted.');
+    }
+
+    public function changePassword()
+    {
+        return view('user.users.change-password');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'old_password' => ['required'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        if (! Hash::check($request->old_password, auth()->user()->password)) {
+            return back()->with('error', 'The password did not match.');
+        }
+
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->password),
+        ]);
+
+        return back()->with('success', 'The password is changed.');
     }
 }

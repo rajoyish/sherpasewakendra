@@ -4,7 +4,7 @@
         Dashboard
     </x-admin-menu-link>
 
-    <x-admin-menu-link :href="route('user.dashboard')">
+    <x-admin-menu-link :href="route('user.users.show', Auth::user())" :active="request()->routeIs('user.users.show')">
         <x-icons.profile-icon/>
         Profile
     </x-admin-menu-link>

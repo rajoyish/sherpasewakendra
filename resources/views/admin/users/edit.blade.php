@@ -52,6 +52,32 @@
                                 </div>
 
                                 <div
+                                    class="pt-5 sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200">
+                                    <label for="name" class="block text-gray-700 sm:mt-px sm:pt-2"> Phone </label>
+                                    <div class="mt-1 sm:col-span-2 sm:mt-0">
+                                        <input type="tel" name="phone" id="phone" autocomplete="phone"
+                                               value="{{ @old('phone', $user->phone) }}"
+                                               class="focus:border-prime-blue focus:ring-prime-blue block w-full max-w-lg rounded-md border-gray-300 shadow-sm sm:max-w-xs"/>
+                                        @error('phone')
+                                        <span class="text-sm text-red-500">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="pt-5 sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200">
+                                    <label for="name" class="block text-gray-700 sm:mt-px sm:pt-2"> Address </label>
+                                    <div class="mt-1 sm:col-span-2 sm:mt-0">
+                                        <input type="text" name="address" id="address" autocomplete="address"
+                                               value="{{ @old('address', $user->address) }}"
+                                               class="focus:border-prime-blue focus:ring-prime-blue block w-full max-w-lg rounded-md border-gray-300 shadow-sm sm:max-w-xs"/>
+                                        @error('address')
+                                        <span class="text-sm text-red-500">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div
                                     class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                                     <label for="country" class="block text-gray-700 sm:mt-px sm:pt-2"> Verify User?
                                     </label>
@@ -97,10 +123,9 @@
                         </div>
                         <div class="pt-5">
                             <div class="flex justify-end">
-                                <a href=""
-                                   class="focus:ring-prime-blue rounded-md border-2 border-monk-red bg-white py-2 px-4 text-monk-red shadow-sm hover:bg-monk-red hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all">Delete</a>
                                 <button type="submit"
-                                        class="focus:ring-prime-blue ml-3 inline-flex justify-center rounded-md border border-transparent bg-prime-blue py-2 px-4 text-white shadow-sm hover:bg-ace-gold focus:outline-none focus:ring-2 focus:ring-offset-2">
+                                        class="focus:ring-prime-blue ml-3 inline-flex justify-center rounded-md border border-transparent bg-prime-blue
+                                        py-2 px-4 text-white shadow-sm hover:bg-ace-gold focus:outline-none focus:ring-2 focus:ring-offset-2">
                                     Update
                                 </button>
                             </div>

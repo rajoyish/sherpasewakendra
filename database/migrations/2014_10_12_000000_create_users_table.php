@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name')->fulltext();
             $table->string('email')->unique();
+            $table->string('phone');
+            $table->string('address');
             $table->string('password');
             $table->foreignId('role_id')->default(1)->constrained();
             $table->boolean('is_verified')->default(false);
