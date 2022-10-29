@@ -18,6 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'uuid',
         'name',
         'email',
         'phone',
@@ -49,9 +50,14 @@ class User extends Authenticatable
         'is_verified' => 'boolean',
     ];
 
-    public function getRedirectRoute()
+    public function getRouteKeyName(): string
     {
-        return match ((int) $this->role_id) {
+        return 'uuid';
+    }
+
+    public function getRedirectRoute(): string
+    {
+        return match ((int)$this->role_id) {
             1 => 'user.dashboard',
             2 => 'admin.dashboard',
         };
