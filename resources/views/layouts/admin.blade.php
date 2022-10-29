@@ -32,7 +32,9 @@
             <main class="flex-1">
 
                 @if (Session::has('success'))
-                    <x-alert />
+                    <x-alert-success/>
+                @elseif(Session::has('error'))
+                    <x-alert-error/>
                 @endif
 
                 {{ $slot }}

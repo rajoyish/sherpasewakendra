@@ -1,4 +1,4 @@
-<x-user-layout>
+<x-admin-layout>
     <article>
         <!-- Profile header -->
         <div>
@@ -37,17 +37,9 @@
             <div class="border-b border-gray-200">
                 <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
                     <nav class="-mb-px flex space-x-8" aria-label="Tabs">
-                        <x-user-profile-tab :href="route('user.users.show', $user)"
-                                            :active="request()->routeIs('user.users.show', $user)">
+                        <x-user-profile-tab :href="route('admin.users.show', $user)"
+                                            :active="request()->routeIs('admin.users.show', $user)">
                             Profile
-                        </x-user-profile-tab>
-
-                        <x-user-profile-tab :href="route('user.change-password')">
-                            Change Password
-                        </x-user-profile-tab>
-
-                        <x-user-profile-tab :href="route('user.users.edit', $user)">
-                            Update Profile
                         </x-user-profile-tab>
                     </nav>
                 </div>
@@ -144,4 +136,4 @@
             </dl>
         </div>
     </article>
-</x-user-layout>
+</x-admin-layout>

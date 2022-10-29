@@ -60,12 +60,17 @@
                                             <td
                                                 class="whitespace-nowrap px-4 py-4 text-gray-900 flex justify-center ">
                                                 <div class="flex-shrink-0">
-                                                    <img class="h-16 w-16 rounded-full mx-4 md:mx-0"
-                                                         src="{{ url('storage/' . $user->photo) }}">
+                                                    <a href="{{ route('admin.users.show', $user) }}">
+                                                        <img class="h-16 w-16 rounded-full mx-4 md:mx-0"
+                                                             src="{{ url('storage/' . $user->photo) }}">
+                                                    </a>
                                                 </div>
                                             </td>
                                             <td class="whitespace-nowrap px-3 py-4 text-gray-900">
-                                                <span class="font-bold">{{ $user->name }}</span>
+                                                <a href="{{ route('admin.users.show', $user) }}"
+                                                   class="font-bold text-prime-blue hover:text-ace-gold">
+                                                    {{ $user->name }}
+                                                </a>
                                                 <div class="text-lg flex">
                                                     <x-icons.clock-icon class="h-5 w-5 mr-1 text-prime-blue"/>
                                                     <span>{{ $user->created_at->format('F j, Y, g:i a') }}</span>
@@ -78,15 +83,15 @@
                                                 {{ $user->phone }}
                                             </td>
                                             <td class="whitespace-nowrap px-3 py-4  text-gray-500 text-center">
-                                                @if ($user->role_id === 2)
-                                                    <span
-                                                        class="py-0 px-4 shadow no-underline rounded-full bg-green-600 text-white border-green-600 hover:text-white focus:outline-none pointer:none">
-                                                            Admin
-                                                        </span>
-                                                @else
+                                                @if ($user->role_id === 1)
                                                     <span
                                                         class="py-0 px-4 shadow no-underline rounded-full bg-prime-blue text-white border-prime-blue hover:text-white focus:outline-none">
                                                             User
+                                                        </span>
+                                                @elseif($user->role_id === 2)
+                                                    <span
+                                                        class="py-0 px-4 shadow no-underline rounded-full bg-green-600 text-white border-green-600 hover:text-white focus:outline-none pointer:none">
+                                                            Admin
                                                         </span>
                                                 @endif
                                             </td>
@@ -96,7 +101,7 @@
                                                         class="py-0 px-4 shadow no-underline rounded-full bg-green-600 text-white border-green-600 hover:text-white focus:outline-none pointer:none">
                                                             Verified
                                                         </span>
-                                                @else
+                                                @elseif($user->is_verified === false)
                                                     <span
                                                         class="py-0 px-4 shadow no-underline rounded-full bg-slate-600 text-white border-slate-600 hover:text-white focus:outline-none">
                                                             Not Verified

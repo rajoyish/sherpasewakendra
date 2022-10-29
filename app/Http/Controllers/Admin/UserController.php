@@ -33,6 +33,11 @@ class UserController extends Controller
         ]);
     }
 
+    public function show(User $user)
+    {
+        return view('admin.users.user', compact('user'));
+    }
+
     public function edit(User $user)
     {
         return view('admin.users.edit', [

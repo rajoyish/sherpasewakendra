@@ -35,7 +35,8 @@ Route::middleware(['auth', 'role:1'])
     ->prefix('user')
     ->name('user.')
     ->group(function () {
-        Route::resource('/users', UserController::class);
+        Route::resource('/users', UserController::class)
+            ->only(['show', 'edit', 'update']);
         Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
         Route::get('/change-password', [UserController::class, 'changePassword'])->name('change-password');
         Route::post('/change-password', [UserController::class, 'updatePassword'])->name('update-password');
@@ -46,7 +47,7 @@ Route::middleware(['auth', 'role:2'])
     ->name('admin.')
     ->group(function () {
         Route::resource('/users', AdminUserController::class)
-            ->only(['index', 'store', 'edit', 'update', 'destroy']);
+            ->only(['index', 'show', 'edit', 'update', 'destroy']);
 
         Route::get('/dashboard', [AdminUserController::class, 'dashboard'])->name('dashboard');
     });
