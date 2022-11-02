@@ -83,12 +83,12 @@
                                                 {{ $user->phone }}
                                             </td>
                                             <td class="whitespace-nowrap px-3 py-4  text-gray-500 text-center">
-                                                @if ($user->role_id === 1)
+                                                @if ($user->role_id == 1)
                                                     <span
                                                         class="py-0 px-4 shadow no-underline rounded-full bg-prime-blue text-white border-prime-blue hover:text-white focus:outline-none">
                                                             User
                                                         </span>
-                                                @elseif($user->role_id === 2)
+                                                @elseif($user->role_id == 2)
                                                     <span
                                                         class="py-0 px-4 shadow no-underline rounded-full bg-green-600 text-white border-green-600 hover:text-white focus:outline-none pointer:none">
                                                             Admin
