@@ -74,12 +74,12 @@
 
                 <div class="sm:col-span-1">
                     <dt class="text-gray-500">Role</dt>
-                    @if($user->role_id === 1)
+                    @if($user->role_id == 1)
                         <dd
                             class="py-0 inline-block mt-1 px-4 shadow no-underline rounded-full bg-prime-blue text-white border-green-600 hover:text-white focus:outline-none pointer:none">
                             User
                         </dd>
-                    @elseif($user->role_id === 2)
+                    @elseif($user->role_id == 2)
                         <dd
                             class="py-0 inline-block mt-1 px-4 shadow no-underline rounded-full bg-green-600 text-white border-green-600 hover:text-white focus:outline-none pointer:none">
                             Admin
@@ -112,20 +112,7 @@
                             >
                                 <li class="flex items-center justify-between py-3 pl-3 pr-4">
                                     <div class="flex w-0 flex-1 items-center">
-                                        <!-- Heroicon name: solid/paper-clip -->
-                                        <svg
-                                            class="h-5 w-5 flex-shrink-0 text-gray-400"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20"
-                                            fill="currentColor"
-                                            aria-hidden="true"
-                                        >
-                                            <path
-                                                fill-rule="evenodd"
-                                                d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
-                                                clip-rule="evenodd"
-                                            />
-                                        </svg>
+                                        <x-icons.paper-clip-icon/>
                                         <span class="ml-2 w-0 flex-1 truncate">
                                             {{ basename(url('storage/' . $user->id_doc)) }}
                                         </span>

@@ -119,7 +119,7 @@
                                             <td
                                                 class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right sm:pr-6 lg:pr-8">
                                                 <div class="flex justify-center text-red-600 hover:text-red-900">
-                                                    @if ($user->role_id === 2)
+                                                    @if ($user->role_id == 2)
                                                         <x-icons.delete-icon class="h-6 w-6 text-slate-600"/>
                                                         <button class="uppercase text-slate-600"
                                                                 disabled>Delete

@@ -54,12 +54,13 @@
                      role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                     <!-- Active: "bg-gray-100", Not Active: "" -->
                     @if(Auth::user()->role_id == 1)
-                        <a href="{{ route('user.users.show', Auth::user()) }}" class="block px-4 py-2 hover:bg-gray-100"
+                        <a href="{{ route('user.users.show', Auth::user()) }}"
+                           class="block px-4 py-2 hover:bg-gray-100 {{ (request()->routeIs('user.users.show', Auth::user())) ? 'bg-gray-100' : '' }}"
                            role="menuitem" tabindex="-1"
                            id="user-menu-item-0">{{ Auth::user()->name }}</a>
                     @elseif(Auth::user()->role_id == 2)
                         <a href="{{ route('admin.users.show', Auth::user()) }}"
-                           class="block px-4 py-2 hover:bg-gray-100"
+                           class="block px-4 py-2 hover:bg-gray-100 {{ (request()->routeIs('admin.users.show', Auth::user())) ? 'bg-gray-100' : '' }}"
                            role="menuitem" tabindex="-1"
                            id="user-menu-item-0">{{ Auth::user()->name }}</a>
                     @endif
