@@ -46,7 +46,7 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'is_admin' => 'boolean',
+        'role_id' => 'int',
         'is_verified' => 'boolean',
     ];
 
