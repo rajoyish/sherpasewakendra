@@ -43,7 +43,7 @@
                                     <div class="mt-1 sm:col-span-2 sm:mt-0">
                                         <input type="text" name="name" id="name" autocomplete="name"
                                                value="{{ @old('name', $user->name) }}"
-                                               class="focus:border-prime-blue focus:ring-prime-blue block w-full max-w-lg rounded-md border-gray-300 shadow-sm sm:max-w-xs"/>
+                                               class="focus:border-prime-blue text-xl focus:ring-prime-blue block w-full max-w-lg rounded-md border-gray-300 shadow-sm sm:max-w-xs"/>
                                         @error('name')
                                         <span class="text-sm text-red-500">{{ $message }}</span>
                                         @enderror
@@ -52,11 +52,11 @@
 
                                 <div
                                     class="pt-5 sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200">
-                                    <label for="name" class="block text-gray-700 sm:mt-px sm:pt-2"> Phone </label>
+                                    <label for="phone" class="block text-gray-700 sm:mt-px sm:pt-2"> Phone </label>
                                     <div class="mt-1 sm:col-span-2 sm:mt-0">
                                         <input type="tel" name="phone" id="phone" autocomplete="phone"
                                                value="{{ @old('phone', $user->phone) }}"
-                                               class="focus:border-prime-blue focus:ring-prime-blue block w-full max-w-lg rounded-md border-gray-300 shadow-sm sm:max-w-xs"/>
+                                               class="focus:border-prime-blue text-xl focus:ring-prime-blue block w-full max-w-lg rounded-md border-gray-300 shadow-sm sm:max-w-xs"/>
                                         @error('phone')
                                         <span class="text-sm text-red-500">{{ $message }}</span>
                                         @enderror
@@ -65,11 +65,11 @@
 
                                 <div
                                     class="pt-5 sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200">
-                                    <label for="name" class="block text-gray-700 sm:mt-px sm:pt-2"> Address </label>
+                                    <label for="address" class="block text-gray-700 sm:mt-px sm:pt-2"> Address </label>
                                     <div class="mt-1 sm:col-span-2 sm:mt-0">
                                         <input type="text" name="address" id="address" autocomplete="address"
                                                value="{{ @old('address', $user->address) }}"
-                                               class="focus:border-prime-blue focus:ring-prime-blue block w-full max-w-lg rounded-md border-gray-300 shadow-sm sm:max-w-xs"/>
+                                               class="focus:border-prime-blue text-xl focus:ring-prime-blue block w-full max-w-lg rounded-md border-gray-300 shadow-sm sm:max-w-xs"/>
                                         @error('address')
                                         <span class="text-sm text-red-500">{{ $message }}</span>
                                         @enderror
@@ -78,16 +78,36 @@
 
                                 <div
                                     class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
-                                    <label for="country" class="block text-gray-700 sm:mt-px sm:pt-2"> Verify User?
+                                    <label for="is_verified" class="block text-gray-700 sm:mt-px sm:pt-2"> Verify User?
                                     </label>
                                     <div class="mt-1 sm:col-span-2 sm:mt-0">
                                         <select id="is_verified" name="is_verified"
-                                                class="focus:border-prime-blue focus:ring-prime-blue block w-full max-w-lg rounded-md border-gray-300 shadow-sm sm:max-w-xs">
+                                                class="focus:border-prime-blue text-xl focus:ring-prime-blue block w-full max-w-lg rounded-md border-gray-300 shadow-sm sm:max-w-xs">
                                             <option value="1" @selected(old('is_verified') == $user->is_verified)>
                                                 Yes
                                             </option>
                                             <option value="0" @selected(old('is_verified') == $user->is_verified)>No
                                             </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
+                                    <label for="discount_id" class="block text-gray-700 sm:mt-px sm:pt-2">
+                                        Apply Discount Coupon
+                                    </label>
+                                    <div class="mt-1 sm:col-span-2 sm:mt-0">
+                                        <select id="discount_id" name="discount_id"
+                                                class="focus:border-prime-blue text-xl focus:ring-prime-blue block w-full max-w-lg rounded-md border-gray-300 shadow-sm sm:max-w-xs">
+                                            @foreach($discounts as $discount)
+                                                <option
+                                                    value="{{ $discount->id }}" @selected($discount->id == $user->discount->id)>
+                                                    {{ $discount->code }}
+                                                </option>
+                                            @endforeach
+
+
                                         </select>
                                     </div>
                                 </div>

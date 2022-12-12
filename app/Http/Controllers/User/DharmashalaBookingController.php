@@ -74,9 +74,7 @@ class DharmashalaBookingController extends Controller
         $total = $days * $price;
 
         //        Total amount with discount
-        $discount_id = Auth::user()->discount_id;
-        $discount = Discount::find($discount_id);
-        $discount_amount = $discount->percentage;
+        $discount_amount = \Auth::user()->discount->percentage;
         $amount = $total - ($total * ($discount_amount / 100));
 
         DharmashalaBooking::create([

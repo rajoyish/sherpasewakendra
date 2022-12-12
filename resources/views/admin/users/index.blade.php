@@ -47,6 +47,9 @@
                                             Verified
                                         </th>
                                         <th scope="col" class="px-3 py-4 font-semibold text-gray-900">
+                                            Coupon
+                                        </th>
+                                        <th scope="col" class="px-3 py-4 font-semibold text-gray-900">
                                             Edit
                                         </th>
                                         <th scope="col" class="relative py-4 pl-3 pr-4 sm:pr-6 lg:pr-8">
@@ -61,7 +64,7 @@
                                                 class="whitespace-nowrap px-4 py-4 text-gray-900 flex justify-center ">
                                                 <div class="flex-shrink-0">
                                                     <a href="{{ route('admin.users.show', $user) }}">
-                                                        <img class="h-16 w-16 rounded-full mx-4 md:mx-0"
+                                                        <img class="h-16 w-16 rounded-full mx-8 block"
                                                              src="{{ url('storage/' . $user->photo) }}">
                                                     </a>
                                                 </div>
@@ -107,7 +110,12 @@
                                                             Not Verified
                                                         </span>
                                                 @endif
-
+                                            </td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-gray-500 text-center">
+                                               <span
+                                                   class="py-0 px-4 no-underline rounded-full border border-ace-gold focus:outline-none pointer:none">
+                                                   {{ $user->discount->code }}
+                                                </span>
                                             </td>
                                             <td class="whitespace-nowrap px-3 py-4  text-gray-500">
                                                 <a href="{{ route('admin.users.edit', $user) }}"

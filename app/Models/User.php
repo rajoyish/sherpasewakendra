@@ -4,7 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -29,6 +29,7 @@ class User extends Authenticatable
         'photo',
         'id_doc',
         'role_id',
+        'discount_id',
     ];
 
     /**
@@ -64,8 +65,8 @@ class User extends Authenticatable
         };
     }
 
-    public function discount(): HasOne
+    public function discount(): BelongsTo
     {
-        return $this->hasOne(Discount::class);
+        return $this->belongsTo(Discount::class);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Discount;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -20,11 +21,13 @@ class UserController extends Controller
         $search_key = $request['search'] ?? '';
 
         if ($search_key != '') {
-            $users = User::latest()
+            $users = User::with('discount')
+                ->latest()
                 ->whereFullText('name', $search_key)
                 ->paginate(10);
         } else {
-            $users = User::latest()
+            $users = User::with('discount')
+                ->latest()
                 ->paginate(10);
         }
 
@@ -40,8 +43,11 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
+        $discounts = Discount::select('id', 'code')->get();
+
         return view('admin.users.edit', [
             'user' => $user,
+            'discounts' => $discounts,
         ]);
     }
 
@@ -82,6 +88,7 @@ class UserController extends Controller
             'phone' => $request->phone,
             'address' => $request->address,
             'is_verified' => $request->is_verified,
+            'discount_id' => $request->discount_id,
         ]);
 
         return to_route('admin.users.index')->with('success', 'The user is updated.');
