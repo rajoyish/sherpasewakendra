@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Guest;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Room;
-use Artesaos\SEOTools\Facades\SEOMeta;
+use App\Models\Discount;
 use Illuminate\Http\Request;
 
-class RoomController extends Controller
+class DiscountController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        SEOMeta::setTitle('Dharmashala’s Rooms');
-        $rooms = Room::all();
-
-        return view('guest.rooms.index')->with('rooms', $rooms);
+        //
     }
 
     /**
@@ -46,21 +41,21 @@ class RoomController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Room  $room
+     * @param  \App\Models\Discount  $discount
      * @return \Illuminate\Http\Response
      */
-    public function show(Room $room)
+    public function show(Discount $discount)
     {
-        return view('dharmashala.rooms.room', compact('room'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Room  $room
+     * @param  \App\Models\Discount  $discount
      * @return \Illuminate\Http\Response
      */
-    public function edit(Room $room)
+    public function edit(Discount $discount)
     {
         //
     }
@@ -69,10 +64,10 @@ class RoomController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Room  $room
+     * @param  \App\Models\Discount  $discount
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Room $room)
+    public function update(Request $request, Discount $discount)
     {
         //
     }
@@ -80,10 +75,10 @@ class RoomController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Room  $room
+     * @param  \App\Models\Discount  $discount
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Room $room)
+    public function destroy(Discount $discount)
     {
         //
     }

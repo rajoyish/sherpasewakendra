@@ -25,6 +25,7 @@ return new class extends Migration
             $table->boolean('is_verified')->default(false);
             $table->string('photo')->nullable();
             $table->string('id_doc')->nullable();
+            $table->unsignedBigInteger('discount_id')->default(5);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -1,7 +1,7 @@
 <div
     x-data="{ alertOpen: true }"
     x-show="alertOpen"
-    x-init="setTimeout(() => alertOpen = false, 3000)"
+    x-init="setTimeout(() => alertOpen = false, 10000)"
     aria-live="assertive"
     class="pointer-events-none fixed inset-0 z-50 flex items-end px-4 py-6 sm:items-start sm:p-6"
     x-transition:enter="transform ease-out duration-300 transition"

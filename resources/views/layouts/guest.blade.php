@@ -25,6 +25,12 @@
 
 {{-- CONTENT --}}
 <main>
+    @if (Session::has('success'))
+        <x-alert-success/>
+    @elseif(Session::has('error'))
+        <x-alert-error/>
+    @endif
+    
     {{ $slot }}
 </main>
 

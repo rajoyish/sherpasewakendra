@@ -37,8 +37,8 @@ $pages = ['executive-committee', 'advisors', 'staffs'];
     </nav>
 
 </span>
-<a href="{{ route('dharmashala') }}" class="block py-5 px-3 transition-all duration-300 hover:bg-ace-gold hover:text-accent
-    {{ Route::currentRouteNamed('dharmashala') ? 'bg-dark-gold' : '' }}">Dharmashala</a>
+<a href="{{ route('rooms') }}" class="block py-5 px-3 transition-all duration-300 hover:bg-ace-gold hover:text-accent
+    {{ Route::currentRouteNamed('rooms.index') ? 'bg-dark-gold' : '' }}">Dharmashala</a>
 <a href="#" class="block py-5 px-3 transition-all duration-300 hover:bg-ace-gold hover:text-accent">Members</a>
 <a href="#" class="block py-5 px-3 transition-all duration-300 hover:bg-ace-gold hover:text-accent">Gallery</a>
 <a href="#" class="block py-5 px-3 transition-all duration-300 hover:bg-ace-gold hover:text-accent">News</a>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Guest\HomeController;
 use App\Http\Controllers\Guest\RoomController;
+use App\Http\Controllers\User\DharmashalaBookingController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +30,7 @@ Route::get('/staffs', [HomeController::class, 'staffs'])->name('staffs');
 Route::get('/advisors', [HomeController::class, 'advisors'])->name('advisors');
 
 //ROOMS
-Route::get('/dharmashala', [RoomController::class, 'index'])->name('dharmashala');
+//Route::get('/dharmashala', [RoomController::class, 'index'])->name('dharmashala');
 
 Route::middleware(['auth', 'role:1'])
     ->prefix('user')
@@ -40,6 +41,22 @@ Route::middleware(['auth', 'role:1'])
         Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
         Route::get('/change-password', [UserController::class, 'changePassword'])->name('change-password');
         Route::post('/change-password', [UserController::class, 'updatePassword'])->name('update-password');
+    });
+
+Route::get('/dharmashala/rooms', [RoomController::class, 'index'])->name('rooms');
+
+Route::middleware(['auth', 'role:1'])
+    ->prefix('dharmashala')
+    ->name('dharmashala.')
+    ->group(function () {
+        Route::resource('/rooms', RoomController::class)->only(['show']);
+    });
+
+Route::middleware(['auth', 'role:1'])
+    ->prefix('dharmashala')
+    ->name('dharmashala.')
+    ->group(function () {
+        Route::resource('/bookings', DharmashalaBookingController::class);
     });
 
 Route::middleware(['auth', 'role:2'])

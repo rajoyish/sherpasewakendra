@@ -92,7 +92,7 @@
                                         </div>
                                         <div class="grow">
                                             <a
-                                                href="tel:014480529"
+                                                href="{{ route('dharmashala.rooms.show', $room) }}"
                                                 class="block rounded-full bg-ace-gold px-12 py-2 font-bold uppercase text-white transition-all duration-300 hover:bg-dark-gold md:py-4"
                                             >Book Now</a
                                             >
