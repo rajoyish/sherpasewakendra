@@ -9,35 +9,15 @@ use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DharmashalaBookingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return  view('dharmashala.rooms.room');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -46,7 +26,7 @@ class DharmashalaBookingController extends Controller
             'amount' => ['numeric'],
         ]);
 
-        if (DharmashalaBooking::where('room_id', $request->room_id)->exists()) {
+        if (DB::table('dharmashala_booking_room')->where('room_id', $request->room_id)->exists()) {
             return to_route('rooms')->with('error', 'Sorry! The room is already booked!');
         }
 
@@ -63,6 +43,7 @@ class DharmashalaBookingController extends Controller
         }
 
         $check_out = Carbon::parse($request->check_out);
+
         $days = $check_out->diffInDays($check_in);
 
         //        Rounding up to 1 if user chooses the same date
@@ -77,60 +58,19 @@ class DharmashalaBookingController extends Controller
         $discount_amount = \Auth::user()->discount->percentage;
         $amount = $total - ($total * ($discount_amount / 100));
 
-        DharmashalaBooking::create([
-            'room_id' => $request->room_id,
+        $booking = DharmashalaBooking::create([
             'check_in' => $check_in,
             'check_out' => $check_out,
             'amount' => $amount,
-            'status' => false,
             'user_id' => \Auth::id(),
         ]);
 
+        // dharmashala_booking_id
+        Auth::user()->bookings();
+
+        // room_id
+        $booking->rooms()->attach($request->room_id, ['status' => (bool) false]);
+
         return to_route('user.dashboard')->with('success', 'Booked! Please pay the invoice to get confirmed.');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\DharmashalaBooking  $dharmashalaBooking
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Room $room)
-    {
-        return view('dharmashala.bookings.room', compact('room'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\DharmashalaBooking  $dharmashalaBooking
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(DharmashalaBooking $dharmashalaBooking)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\DharmashalaBooking  $dharmashalaBooking
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, DharmashalaBooking $dharmashalaBooking)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\DharmashalaBooking  $dharmashalaBooking
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(DharmashalaBooking $dharmashalaBooking)
-    {
-        //
     }
 }

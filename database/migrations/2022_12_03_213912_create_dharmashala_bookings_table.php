@@ -15,14 +15,12 @@ return new class extends Migration
     {
         Schema::create('dharmashala_bookings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('room_id');
-            $table->foreign('room_id')->references('id')->on('rooms')->cascadeOnDelete();
             $table->date('check_in');
             $table->date('check_out');
             $table->integer('amount');
-            $table->boolean('status')->default(false);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->timestamps();
         });
     }
 

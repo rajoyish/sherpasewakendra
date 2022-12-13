@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DharmashalaBookingController as AdminDharmashalaBookingController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Guest\HomeController;
 use App\Http\Controllers\Guest\RoomController;
@@ -56,7 +57,8 @@ Route::middleware(['auth', 'role:1'])
     ->prefix('dharmashala')
     ->name('dharmashala.')
     ->group(function () {
-        Route::resource('/bookings', DharmashalaBookingController::class);
+        Route::resource('/bookings', DharmashalaBookingController::class)
+            ->only(['create', 'store']);
     });
 
 Route::middleware(['auth', 'role:2'])
@@ -67,6 +69,8 @@ Route::middleware(['auth', 'role:2'])
             ->only(['index', 'show', 'edit', 'update', 'destroy']);
 
         Route::get('/dashboard', [AdminUserController::class, 'dashboard'])->name('dashboard');
+
+        Route::resource('/dharmashala/bookings', AdminDharmashalaBookingController::class);
     });
 
 require __DIR__.'/auth.php';

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Room extends Model
 {
@@ -17,4 +18,9 @@ class Room extends Model
     ];
 
     protected $casts = ['amenities' => 'json'];
+
+    public function bookings(): BelongsToMany
+    {
+        return $this->belongsToMany(DharmashalaBooking::class);
+    }
 }

@@ -9,8 +9,8 @@
         Users
     </x-admin-menu-link>
 
-    <x-admin-menu-link>
-        <x-icons.room-icon/>
-        Rooms
+    <x-admin-menu-link :href="route('admin.bookings.index')" :active="request()->routeIs('admin.bookings.index')">
+        <x-icons.booking-icon/>
+        Bookings
     </x-admin-menu-link>
 </nav>
