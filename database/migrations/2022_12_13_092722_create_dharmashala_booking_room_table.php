@@ -18,8 +18,6 @@ return new class extends Migration
             $table->foreign('dharmashala_booking_id')->references('id')->on('dharmashala_bookings')->cascadeOnDelete();
             $table->unsignedBigInteger('room_id');
             $table->foreign('room_id')->references('id')->on('rooms')->cascadeOnDelete();
-            $table->boolean('status')->default(0);
-            $table->string('payment_receipt')->nullable();
         });
     }
 

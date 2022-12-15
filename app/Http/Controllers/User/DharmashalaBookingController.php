@@ -24,6 +24,7 @@ class DharmashalaBookingController extends Controller
             'check_in' => ['required', 'date'],
             'check_out' => ['required', 'date'],
             'amount' => ['numeric'],
+            'status' => ['boolean'],
         ]);
 
         if (DB::table('dharmashala_booking_room')->where('room_id', $request->room_id)->exists()) {
@@ -63,13 +64,14 @@ class DharmashalaBookingController extends Controller
             'check_out' => $check_out,
             'amount' => $amount,
             'user_id' => \Auth::id(),
+            'status' => false,
         ]);
 
         // dharmashala_booking_id
         Auth::user()->bookings();
 
         // room_id
-        $booking->rooms()->attach($request->room_id, ['status' => (bool) false]);
+        $booking->rooms()->attach($request->room_id);
 
         return to_route('user.dashboard')->with('success', 'Booked! Please pay the invoice to get confirmed.');
     }

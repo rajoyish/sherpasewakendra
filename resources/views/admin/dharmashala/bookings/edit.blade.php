@@ -12,7 +12,7 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
             <!-- Replace with your content -->
             <main>
-                <form method="POST" action="{{ route('admin.bookings.update', $booking_room->dharmashala_booking_id) }}"
+                <form method="POST" action="{{ route('admin.bookings.update', $booking) }}"
                 >
                     @csrf
                     @method('PUT')
@@ -27,10 +27,10 @@
                                     <div class="mt-1 sm:col-span-2 sm:mt-0">
                                         <select id="status" name="status"
                                                 class="focus:border-prime-blue text-xl focus:ring-prime-blue block w-full max-w-lg rounded-md border-gray-300 shadow-sm sm:max-w-xs">
-                                            <option value="1" @selected(old('status') == $booking_room->status)>
+                                            <option value="1" @selected(old('status') == $booking->status)>
                                                 Booked
                                             </option>
-                                            <option value="0" @selected(old('status') == $booking_room->status)>
+                                            <option value="0" @selected(old('status') == $booking->status)>
                                                 Not Confirmed
                                             </option>
                                         </select>
@@ -46,12 +46,12 @@
                                         Payment Receipt
                                     </label>
                                     <div class="mt-1 sm:col-span-2 sm:mt-0">
-                                        @if($booking_room->payment_receipt === NULL)
-                                            No found!
+                                        @if($booking->payment_receipt === NULL)
+                                            Not found!
                                         @else
                                             <div class="flex items-center justify-center w-full h-96 lg:w-1/2">
                                                 <img class="object-contain w-full h-full mx-auto rounded-md"
-                                                     src="{{ $booking_room->payment_receipt }}">
+                                                     src="{{ $booking->payment_receipt }}">
                                             </div>
                                         @endif
                                     </div>

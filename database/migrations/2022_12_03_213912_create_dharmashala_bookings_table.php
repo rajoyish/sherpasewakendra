@@ -20,6 +20,8 @@ return new class extends Migration
             $table->integer('amount');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->boolean('status')->default(0);
+            $table->string('payment_receipt')->nullable();
             $table->timestamps();
         });
     }

@@ -33,8 +33,6 @@
                                         <th scope="col" class="px-3 py-4 font-semibold text-gray-900">Check-out</th>
                                         <th scope="col" class="px-3 py-4 font-semibold text-gray-900">Amount</th>
                                         <th scope="col" class="px-3 py-4 font-semibold text-gray-900">Status</th>
-                                        <th scope="col" class="px-3 py-4 font-semibold text-gray-900">Payment Receipt
-                                        </th>
                                         <th scope="col" class="px-3 py-4 font-semibold text-gray-900">Edit</th>
                                         <th scope="col" class="relative py-4 pl-3 pr-4 sm:pr-6 lg:pr-8">Delete</th>
                                     </tr>
@@ -59,26 +57,17 @@
                                             <td class="whitespace-nowrap px-3 py-4 text-center text-gray-500">
                                                 Rs. {{ $booking->amount }}</td>
                                             <td class="whitespace-nowrap px-3 py-4 text-center text-gray-500">
-                                                @foreach($booking_rooms as $broom)
-                                                    @if($broom->status == 1)
-                                                        <span
-                                                            class="pointer:none rounded-full bg-green-700 py-0 px-4 uppercase text-green-200 no-underline focus:outline-none">
+                                                @if($booking->status === true)
+                                                    <span
+                                                        class="pointer:none rounded-full bg-green-700 py-0 px-4 uppercase text-green-200 no-underline focus:outline-none">
                                                             Booked
                                                         </span>
-                                                    @else
-                                                        <span
-                                                            class="text-yellow-800 border-ace-gold pointer:none rounded-full border py-0 px-4 uppercase no-underline focus:outline-none">
+                                                @else
+                                                    <span
+                                                        class="text-yellow-800 border-ace-gold pointer:none rounded-full border py-0 px-4 uppercase no-underline focus:outline-none">
                                                             Not Confirmed
                                                         </span>
-                                                    @endif
-                                                @endforeach
-                                            </td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-gray-500">
-                                                <a href="#"
-                                                   class="flex justify-center text-indigo-600 hover:text-indigo-900">
-                                                    <x-icons.eye/>
-                                                    <span class="uppercase">View</span>
-                                                </a>
+                                                @endif
                                             </td>
                                             <td class="whitespace-nowrap px-3 py-4 text-gray-500">
                                                 <a href="{{ route('admin.bookings.edit', $booking) }}"
@@ -89,7 +78,14 @@
                                             </td>
                                             <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right sm:pr-6 lg:pr-8">
                                                 <div class="flex justify-center text-red-600 hover:text-red-900">
-                                                    delete
+                                                    <x-icons.delete-icon class="h-6 w-6"/>
+                                                    <form action="{{ route('admin.bookings.destroy', $booking) }}"
+                                                          method="POST"
+                                                          onsubmit="return confirm('Are you sure?');">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="uppercase" type="submit">Delete</button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>

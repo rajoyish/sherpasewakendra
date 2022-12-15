@@ -70,7 +70,8 @@ Route::middleware(['auth', 'role:2'])
 
         Route::get('/dashboard', [AdminUserController::class, 'dashboard'])->name('dashboard');
 
-        Route::resource('/dharmashala/bookings', AdminDharmashalaBookingController::class);
+        Route::resource('/dharmashala/bookings', AdminDharmashalaBookingController::class)
+            ->only(['index', 'edit', 'update', 'destroy']);
     });
 
 require __DIR__.'/auth.php';
