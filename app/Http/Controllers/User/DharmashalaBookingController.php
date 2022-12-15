@@ -83,11 +83,13 @@ class DharmashalaBookingController extends Controller
         // room_id
         $booking->rooms()->attach($request->room_id);
 
-        return to_route('user.dashboard')->with('success', 'Booked! Please pay the invoice to get confirmed.');
+        return to_route('dharmashala.bookings.index')->with('success', 'Booked! Please pay and upload the payment receipt.');
     }
 
     public function edit(DharmashalaBooking $booking)
     {
+        $this->authorize('update', $booking);
+
         return view('user.dharmashala.bookings.edit', compact('booking'));
     }
 
