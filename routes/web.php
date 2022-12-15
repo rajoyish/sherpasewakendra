@@ -58,7 +58,7 @@ Route::middleware(['auth', 'role:1'])
     ->name('dharmashala.')
     ->group(function () {
         Route::resource('/bookings', DharmashalaBookingController::class)
-            ->only(['create', 'store']);
+            ->only(['index', 'create', 'store', 'edit', 'update']);
     });
 
 Route::middleware(['auth', 'role:2'])

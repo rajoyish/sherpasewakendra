@@ -10,12 +10,22 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rules\File;
 
 class DharmashalaBookingController extends Controller
 {
+    public function index()
+    {
+        $bookings = DharmashalaBooking::with('rooms')
+            ->whereUserId(Auth::id())->get();
+
+        return view('user.dharmashala.bookings.index', compact('bookings'));
+    }
+
     public function create()
     {
-        return  view('dharmashala.rooms.room');
+        return view('dharmashala.rooms.room');
     }
 
     public function store(Request $request)
@@ -74,5 +84,32 @@ class DharmashalaBookingController extends Controller
         $booking->rooms()->attach($request->room_id);
 
         return to_route('user.dashboard')->with('success', 'Booked! Please pay the invoice to get confirmed.');
+    }
+
+    public function edit(DharmashalaBooking $booking)
+    {
+        return view('user.dharmashala.bookings.edit', compact('booking'));
+    }
+
+    public function update(Request $request, DharmashalaBooking $booking)
+    {
+        $request->validate([
+            'payment_receipt' => [File::image()->max(1024)],
+        ]);
+
+        if ($request->hasFile('payment_receipt')) {
+            $old_receipt = $booking->payment_receipt;
+            if (! empty($old_receipt)) {
+                Storage::delete($old_receipt);
+            }
+
+            $new_receipt = $request->file('payment_receipt')->store('images/payment-receipts');
+
+            DB::table('dharmashala_bookings')
+                ->where('id', $booking->id)
+                ->update(['payment_receipt' => $new_receipt]);
+        }
+
+        return to_route('dharmashala.bookings.edit', $booking)->with('success', 'The payment receipt is uploaded.');
     }
 }

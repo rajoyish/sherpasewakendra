@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\DharmashalaBooking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class DharmashalaBookingController extends Controller
 {
@@ -51,6 +52,12 @@ class DharmashalaBookingController extends Controller
      */
     public function destroy(DharmashalaBooking $booking)
     {
+        $receipt = $booking->payment_receipt;
+
+        if (! empty($receipt)) {
+            Storage::delete($receipt);
+        }
+
         $booking->delete();
 
         return to_route('admin.bookings.index')->with('success', 'The room is deleted and vacant for a booking.');

@@ -9,7 +9,8 @@
         Profile
     </x-admin-menu-link>
 
-    <x-admin-menu-link :href="route('user.dashboard')">
+    <x-admin-menu-link :href="route('dharmashala.bookings.index')"
+                       :active="request()->routeIs('dharmashala.bookings.index')">
         <x-icons.booking-icon/>
         Bookings
     </x-admin-menu-link>
