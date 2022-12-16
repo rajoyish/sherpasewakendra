@@ -99,5 +99,10 @@
                 <div class="mt-8">{{ $bookings->links() }}</div>
             </main>
         </div>
+        
+        {{-- Bank info --}}
+        <x-bank-info/>
+        {{-- / Bank info --}}
+
     </div>
 </x-admin-layout>

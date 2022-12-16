@@ -86,5 +86,10 @@
                 </div>
             </main>
         </div>
+
+        {{-- Bank info --}}
+        <x-bank-info/>
+        {{-- / Bank info --}}
+
     </div>
 </x-user-layout>
