@@ -7,33 +7,33 @@
     <img class="relative object-cover w-full h-full rounded-xl"
          src="{{ asset('images/siddhartha-bank-bkg.png') }}">
     <div class="w-full px-8 absolute top-8">
-        <div class="flex justify-between">
+        <div class="flex justify-between mb-2">
             <div>
-                <p class="font-light text-sm">
+                <p class="text-sm uppercase">
                     Account Name
-                    </h1>
-                <p class="font-medium">
+                </p>
+                <p>
                     Sherpa Sewa Kendra
                 </p>
             </div>
             <img class="w-auto h-14" src="{{ asset('images/logo-sidnpka.png') }}"/>
         </div>
 
-        <div class="flex justify-between mb-2">
+        <div class="flex justify-between mb-3">
             <div>
-                <p class="font-light">
+                <p class="text-sm uppercase">
                     Account Number
-                    </h1>
-                <p class="font-medium">
+                </p>
+                <p>
                     02415159508
                 </p>
             </div>
 
             <div>
-                <p class="font-light">
+                <p class="text-sm uppercase">
                     Bank Name
-                    </h1>
-                <p class="font-medium">
+                </p>
+                <p>
                     Siddhartha Bank Ltd.
                 </p>
             </div>
@@ -41,19 +41,19 @@
 
         <div class="flex justify-between">
             <div>
-                <p class="font-light">
-                    Branch
-                    </h1>
-                <p class="font-medium">
-                    Tusal, Kathmandu
+                <p class="text-sm uppercase">
+                    Branch Name
+                </p>
+                <p>
+                    Bouddha, Kathmandu
                 </p>
             </div>
 
             <div>
-                <p class="font-light">
-                    Swift Ccode
-                    </h1>
-                <p class="font-medium">
+                <p class="text-sm uppercase">
+                    Swift Code
+                </p>
+                <p>
                     SIDDNPKA
                 </p>
             </div>
