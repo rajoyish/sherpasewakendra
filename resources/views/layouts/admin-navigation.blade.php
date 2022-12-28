@@ -25,8 +25,8 @@
                 @click="open = false">
                 <span class="sr-only">Close sidebar</span>
                 <svg class="h-6 w-6 text-white" x-description="Heroicon name: outline/x"
-                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    aria-hidden="true">
+                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                     aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
                     </path>
                 </svg>
@@ -34,11 +34,12 @@
         </div>
 
         <div class="flex flex-shrink-0 items-center px-4">
-            <x-cms-creator-logo />
+            <x-cms-creator-logo/>
         </div>
         <div class="mt-5 h-0 flex-1 overflow-y-auto">
-            <x-admin-menu-items />
+            <x-admin-menu-items/>
         </div>
+        <x-help-tel/>
     </div>
 
     <div class="w-14 flex-shrink-0" aria-hidden="true">
@@ -51,10 +52,11 @@
     <!-- Sidebar component, swap this element with another sidebar if you like -->
     <div class="flex min-h-0 flex-1 flex-col bg-prime-blue">
         <div class="flex h-16 flex-shrink-0 items-center bg-prime-blue px-4">
-            <x-cms-creator-logo />
+            <x-cms-creator-logo/>
         </div>
         <div class="flex flex-1 flex-col overflow-y-auto">
-            <x-admin-menu-items />
+            <x-admin-menu-items/>
         </div>
     </div>
+    <x-help-tel/>
 </div>

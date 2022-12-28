@@ -1,6 +1,6 @@
 <h2 class="my-8 text-center">
     Please deposit the amount in the following bank and upload the payment receipt to
-    get confirmed.
+    get confirmed. For booking inquiry: <a class="font-bold text-prime-blue" href="tel:014480529">01-4480529</a>
 </h2>
 <div
     class="w-96 h-56 m-auto bg-yellow-100 rounded-xl relative text-white shadow-2xl transition-transform transform hover:scale-110">

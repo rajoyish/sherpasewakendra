@@ -42,7 +42,7 @@ class DharmashalaBookingController extends Controller
         }
 
         if (Auth::user()->is_verified === false) {
-            return back()->with('error', 'Sorry! Your account is not verified, please call us to do so.');
+            return back()->with('error', 'Sorry! Your account is not verified, please call us at 01-4480529.');
         }
 
         //        Days based on check in & check out

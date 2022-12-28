@@ -39,6 +39,7 @@
         <div class="mt-5 h-0 flex-1 overflow-y-auto">
             <x-user-menu-items/>
         </div>
+        <x-help-tel/>
     </div>
 
     <div class="w-14 flex-shrink-0" aria-hidden="true">
@@ -57,4 +58,5 @@
             <x-user-menu-items/>
         </div>
     </div>
+    <x-help-tel/>
 </div>
