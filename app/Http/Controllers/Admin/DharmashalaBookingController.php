@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\DharmashalaBooking;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -39,7 +40,10 @@ class DharmashalaBookingController extends Controller
 
         DB::table('dharmashala_bookings')
             ->where('id', $booking->id)
-            ->update(['status' => $request->status]);
+            ->update([
+                'status' => $request->status,
+                'updated_at' => Carbon::now(),
+            ]);
 
         return to_route('admin.bookings.index')->with('success', 'The room is booked!');
     }
@@ -61,5 +65,10 @@ class DharmashalaBookingController extends Controller
         $booking->delete();
 
         return to_route('admin.bookings.index')->with('success', 'The room is deleted and vacant for a booking.');
+    }
+
+    public function show(DharmashalaBooking $booking)
+    {
+        return view('admin.dharmashala.bookings.index', ['booking' => $booking]);
     }
 }

@@ -34,6 +34,7 @@
                                         <th scope="col" class="px-3 py-4 font-semibold text-gray-900">Amount</th>
                                         <th scope="col" class="px-3 py-4 font-semibold text-gray-900">Status</th>
                                         <th scope="col" class="px-3 py-4 font-semibold text-gray-900">Edit</th>
+                                        <th scope="col" class="px-3 py-4 font-semibold text-gray-900">Invoice</th>
                                         <th scope="col" class="relative py-4 pl-3 pr-4 sm:pr-6 lg:pr-8">Delete</th>
                                     </tr>
                                     </thead>
@@ -76,6 +77,13 @@
                                                     <span class="uppercase">Edit</span>
                                                 </a>
                                             </td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-gray-500">
+                                                <a href="{{ route('admin.bookings.show', $booking) }}"
+                                                   class="flex justify-center text-indigo-600 hover:text-indigo-900">
+                                                    <x-icons.edit-icon/>
+                                                    <span class="uppercase">Generate</span>
+                                                </a>
+                                            </td>
                                             <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right sm:pr-6 lg:pr-8">
                                                 <div class="flex justify-center text-red-600 hover:text-red-900">
                                                     <x-icons.delete-icon class="h-6 w-6"/>
@@ -99,7 +107,7 @@
                 <div class="mt-8">{{ $bookings->links() }}</div>
             </main>
         </div>
-        
+
         {{-- Bank info --}}
         <x-bank-info/>
         {{-- / Bank info --}}

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DharmashalaBookingController as AdminDharmashalaBookingController;
+use App\Http\Controllers\Admin\InvoiceController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Guest\HomeController;
 use App\Http\Controllers\Guest\RoomController;
@@ -19,19 +20,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [RoomController::class, 'index']);
-
-//Route::resource('users', UserController::class)
-//    ->only(['index', 'store', 'edit', 'update', 'destroy'])
-//    ->middleware(['is_admin']);
+Route::get('/', [HomeController::class, 'index']);
 
 // HOME
 Route::get('/executive-committee', [HomeController::class, 'executiveCommittee'])->name('executive-committee');
 Route::get('/staffs', [HomeController::class, 'staffs'])->name('staffs');
 Route::get('/advisors', [HomeController::class, 'advisors'])->name('advisors');
-
-//ROOMS
-//Route::get('/dharmashala', [RoomController::class, 'index'])->name('dharmashala');
 
 Route::middleware(['auth', 'role:1'])
     ->prefix('user')
@@ -71,7 +65,9 @@ Route::middleware(['auth', 'role:2'])
         Route::get('/dashboard', [AdminUserController::class, 'dashboard'])->name('dashboard');
 
         Route::resource('/dharmashala/bookings', AdminDharmashalaBookingController::class)
-            ->only(['index', 'edit', 'update', 'destroy']);
+            ->only(['index', 'show', 'edit', 'update', 'destroy']);
+
+        Route::resource('/dharmashala/bookings/invoices', InvoiceController::class);
     });
 
 require __DIR__.'/auth.php';
